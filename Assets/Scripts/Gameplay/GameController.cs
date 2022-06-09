@@ -2,6 +2,8 @@ using Abstracts;
 using Gameplay.GameState;
 using Gameplay.Player;
 using Gameplay.Space;
+using Gameplay.Planet;
+using Gameplay.Space.Star;
 
 namespace Gameplay
 {
@@ -10,6 +12,8 @@ namespace Gameplay
         private readonly CurrentState _currentState;
         private readonly PlayerController _playerController;
         private readonly SpaceController _spaceController;
+        private readonly PlanetController _planetConntroller;
+        private readonly StarController _starConntroller;
 
         public GameController(CurrentState currentState)
         {
@@ -20,6 +24,9 @@ namespace Gameplay
 
             _spaceController = new SpaceController();
             AddController(_spaceController);
+
+            _planetConntroller = new PlanetController();
+            AddController(_planetConntroller);
         }
     }
 }
