@@ -1,26 +1,32 @@
 using Abstracts;
 using UnityEngine;
+using Utilities.Reactive.SubscriptionProperty;
 
-namespace Gameplay.Player.Movement
+namespace Gameplay.Planet.Movement
 {
     public class PlanetMovementController : BaseController
     {
+        private readonly SubscribedProperty<Vector3> _positionPlanet;
+
         private readonly PlanetMovementModel _movementModel;
         private readonly PlanetView _view;
 
         public PlanetMovementController(
-            PlanetMovementModel movementModel,
+            SubscribedProperty<Vector3> positionPlanet,
+            PlanetMovementConfig movementModel,
             PlanetView view)
         {
-            _movementModel = movementModel;
+            _positionPlanet = positionPlanet;
+            _movementModel  = new PlanetMovementModel(movementModel);
             _view = view;
+
+            _positionPlanet.Subscribe(MovePlanet);
         }
 
-        public Vector3 MovePlanet(GameObject planet, float orbita, float speedPlanet, int sideMove)
+        public void MovePlanet(Vector3 planetPosition)
         {
-            return planet.transform.position = new Vector3(
-                                                (planet.transform.position.x + sideMove * orbita * Mathf.Cos(Mathf.PI * Time.unscaledTime * speedPlanet)),
-                                                (planet.transform.position.y + orbita * Mathf.Sin(Mathf.PI * Time.unscaledTime * speedPlanet)), 0);
+            PlanetMovementModel newMovementModel = _movementModel;
+            newMovementModel.MovePlanet(_movementModel);
 
         }
     }

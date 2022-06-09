@@ -8,7 +8,7 @@ public class CreaPlanet : MonoBehaviour
     void Start()
     {
         SearchFirstObject firstObject = new SearchFirstObject();
-        firstObject.SearchFirstObjectOnTag(gameObject, "Star");
+        firstObject.SearchFirstObjectOnTag(gameObject.transform.position, "Star");
     }
 
     // Update is called once per frame

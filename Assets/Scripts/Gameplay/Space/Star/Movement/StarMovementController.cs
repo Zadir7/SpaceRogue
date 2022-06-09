@@ -1,6 +1,6 @@
 using Abstracts;
 
-namespace Gameplay.Player.Movement
+namespace Gameplay.Space.Star.Movement
 {
     public class StarMovementController : BaseController
     {
