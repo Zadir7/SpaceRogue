@@ -27,7 +27,6 @@ namespace Gameplay.Planet.Movement
         {
             PlanetMovementModel newMovementModel = _movementModel;
             newMovementModel.MovePlanet(_movementModel);
-
         }
     }
 }

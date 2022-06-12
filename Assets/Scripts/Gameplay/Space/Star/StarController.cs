@@ -1,9 +1,9 @@
 using Abstracts;
 using Gameplay.Space.Star;
-using Gameplay.Space.Star.Movement;
 using Scriptables;
 using Utilities.ResourceManagement;
 using UnityEngine;
+using Gameplay.Planet;
 
 namespace Gameplay.Space.Star
 {
@@ -13,24 +13,30 @@ namespace Gameplay.Space.Star
         private readonly ResourcePath _viewPath = new("Prefabs/GamePlay/Star");
         
         private readonly StarConfig _config;
+        private readonly StarView[] _allViews;
         private readonly StarView _view;
 
-        private readonly StarMovementController _movementController;
-        
+        //private readonly StarMovementController _movementController;
+
 
         public StarController()
         {
             _config = ResourceLoader.LoadObject<StarConfig>(_configPath);
-            _view = LoadView<StarView>(_viewPath, new Vector3 (25, 25, 0));
+            _view = LoadView<StarView>(_viewPath);
 
-            //_movementController = AddInputController(_config.StarMovement, _view);
+            AddPlanetInSpace(_config, _view);
         }
 
-        private StarMovementController AddInputController(StarMovementModel movementModel, StarView view)
+        
+        private void AddPlanetInSpace(StarConfig config, StarView view)
         {
-            var movementController = new StarMovementController(movementModel, view);
-            AddController(movementController);
-            return movementController;
+            System.Random random = new System.Random();
+            for (int i = 0; i < random.Next(config.starFullConfigs.MinPlanetOnOrbit, config.starFullConfigs.MaxPlanetOnOrbit); i++)
+            {
+                var planetConntroller = new PlanetController(config, view);
+                AddController(planetConntroller);
+            }
+            //return movementController;
         }
     }
 }

@@ -24,9 +24,8 @@ namespace Gameplay
 
             _spaceController = new SpaceController();
             AddController(_spaceController);
-
-            _planetConntroller = new PlanetController();
-            AddController(_planetConntroller);
+            
+            _starConntroller = new StarController();
         }
     }
 }

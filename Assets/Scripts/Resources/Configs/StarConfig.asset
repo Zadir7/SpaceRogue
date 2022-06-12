@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca03a8d279b94a348b944f9af218e616, type: 3}
   m_Name: StarConfig
   m_EditorClassIdentifier: 
-  StarMovement:
-    Diametr: 0
+  starFullConfigs:
+    Name: 
+    Chanse: 0
+    MinDistanceFromOtherStars: 1
+    MaxDistanceFromOtherStars: 20
+    MinPlanetOnOrbit: 1
+    MaxPlanetOnOrbit: 10
+    MinDiametr: 1
+    MaxDiametr: 10
     KoefficientGravitation: 0
     TypeStart: {fileID: 0}
-    ColorStar: {r: 0, g: 0, b: 0, a: 0}

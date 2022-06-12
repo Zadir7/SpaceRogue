@@ -19,6 +19,9 @@ namespace Gameplay.Planet.Movement
 
         public void MovePlanet(PlanetMovementModel planet)
         {
+            try
+            {
+
             bool trueStar = false;
             Collider[] colliders = Physics.OverlapSphere(planet._config.PositionStar, 0);
             foreach (var centrStar in colliders)
@@ -30,13 +33,22 @@ namespace Gameplay.Planet.Movement
                 SearchFirstObject searchFirstObject = new SearchFirstObject();
                 planet._config.PositionStar = searchFirstObject.SearchFirstObjectOnTag(_config.PositionPlanet, "Star");
             }
-            planet._config.Speed = 1f;
-            planet._config.Orbita = 1f;
-            planet._config.PositionPlanet = new Vector3(
-                                                (planet._config.PositionPlanet.x + planet._config.Orbita * Mathf.Cos(Mathf.PI * Time.unscaledTime * planet._config.Speed)),
-                                                (planet._config.PositionPlanet.y + planet._config.Orbita * Mathf.Sin(Mathf.PI * Time.unscaledTime * planet._config.Speed)), 0);
 
+            planet._config.PositionPlanet = new Vector3(
+                                                (planet._config.PositionPlanet.x + planet._config.Orbit * Mathf.Cos(Mathf.PI * Time.unscaledTime * planet._config.Speed)),
+                                                (planet._config.PositionPlanet.y + planet._config.Orbit * Mathf.Sin(Mathf.PI * Time.unscaledTime * planet._config.Speed)), 0);
+            }
+            catch
+            {
+
+            }
         }
+
+        public PlanetMovementConfig CreatingPlanetConfig(PlanetMovementConfig planetMovementConfig) 
+        {
+            return planetMovementConfig;
+        }
+
 
     }
 }
