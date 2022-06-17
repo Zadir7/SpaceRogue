@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class StarView : MonoBehaviour
+namespace Configs.StarsConfigs
 {
+    public class StarView : MonoBehaviour
+    {
+    }
 }

@@ -13,7 +13,6 @@ namespace Gameplay
         private readonly PlayerController _playerController;
         private readonly SpaceController _spaceController;
         private readonly PlanetController _planetConntroller;
-        private readonly StarController _starConntroller;
 
         public GameController(CurrentState currentState)
         {
@@ -24,8 +23,6 @@ namespace Gameplay
 
             _spaceController = new SpaceController();
             AddController(_spaceController);
-            
-            _starConntroller = new StarController();
         }
     }
 }

@@ -10,12 +10,14 @@ public class PlanetMovementConfig
     [SerializeField] public bool SideMove;
 
     [Header("Size")]
-    [SerializeField] public float MinDiametrPlanet;
-    [SerializeField] public float MaxDiametrPlanet;
-    [SerializeField] public float DiametrPlanet;
+    [SerializeField] public int MinDiametrPlanet;
+    [SerializeField] public int MaxDiametrPlanet;
+    [SerializeField] internal float DiametrPlanet;
+
     [SerializeField] public int MinOrbit;
     [SerializeField] public int MaxOrbit;
-    [SerializeField] public float Orbit;
+    [SerializeField] internal float Orbit;
+
     [SerializeField] public Vector3 PositionPlanet;
     [SerializeField] public Vector3 PositionStar;
 

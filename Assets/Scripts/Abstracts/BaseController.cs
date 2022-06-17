@@ -74,7 +74,12 @@ namespace Abstracts
             TView view = viewObject.GetComponent<TView>();
             return view;
         }
-        
+
+        protected GameObject[] LoadAllView<TConfig>(ResourcePath path)
+        {
+            return ResourceLoader.LoadAllConfig<GameObject>(path);
+        }
+
         protected TView LoadView<TView>(ResourcePath path, Vector3 position)
         {
             GameObject prefab = ResourceLoader.LoadPrefab(path);

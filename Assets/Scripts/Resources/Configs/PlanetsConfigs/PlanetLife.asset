@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 845536198f6b49643bfbcc25e4dd5835, type: 3}
-  m_Name: PlanetConfig
+  m_Name: PlanetLife
   m_EditorClassIdentifier: 
   PlanetMovement:
-    Speed: 1
+    Speed: 2
     SideMove: 1
-    MinDiametrPlanet: 10
-    MaxDiametrPlanet: 30
-    DiametrPlanet: 0
-    MinOrbit: 20
-    MaxOrbit: 50
-    Orbit: 0
-    PositionPlanet: {x: 0, y: 0, z: 0}
+    MinDiametrPlanet: 3
+    MaxDiametrPlanet: 5
+    DiametrPlanet: 3.28
+    MinOrbit: 10
+    MaxOrbit: 70
+    Orbit: 36.29
+    PositionPlanet: {x: 16, y: 32.572445, z: 0}
     PositionStar: {x: 0, y: 0, z: 0}
+    TypePlanet: {fileID: 0}
     Resource: 0

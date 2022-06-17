@@ -1,42 +1,56 @@
 using Abstracts;
-using Gameplay.Space.Star;
 using Scriptables;
 using Utilities.ResourceManagement;
-using UnityEngine;
 using Gameplay.Planet;
+using Configs.StarsConfigs;
+using System.Collections.Generic;
 
 namespace Gameplay.Space.Star
 {
     public class StarController : BaseController
     {
-        private readonly ResourcePath _configPath = new("Configs/StarConfig");
-        private readonly ResourcePath _viewPath = new("Prefabs/GamePlay/Star");
+        private readonly ResourcePath _allStarPath = new ResourcePath("Configs/ChanseConfigs/ChanseSelectStar");
+        private readonly ResourcePath _configPath = new("Configs/StarsConfigs/");
+        private readonly ResourcePath _viewPath = new("Prefabs/VariantStar/");
         
         private readonly StarConfig _config;
         private readonly StarView[] _allViews;
         private readonly StarView _view;
 
-        //private readonly StarMovementController _movementController;
-
+        private readonly List<ChanseSelectObjectConfig> allStarChanse;
+        private readonly PlanetGenerateModel planetGenerateModel;
+        private readonly StarGenerateModel starGenerateModel;
 
         public StarController()
         {
-            _config = ResourceLoader.LoadObject<StarConfig>(_configPath);
-            _view = LoadView<StarView>(_viewPath);
+            System.Random random = new System.Random();
 
-            AddPlanetInSpace(_config, _view);
+            allStarChanse = ResourceLoader.LoadObject<ChanseSelectedObject>(_allStarPath).ChanseSelectobjects;
+
+            var select = PlanetGenerateModel.RandomSelectPlanet(allStarChanse);
+
+            _config = ResourceLoader.LoadObject<StarConfig>(new ResourcePath($"{_configPath.PathToResource.ToString()}{allStarChanse[select].NameObject.ToString()}"));
+            StarConfig starConfig = new StarConfig();
+            starConfig.starFullConfigs = _config.starFullConfigs;
+
+            _view = LoadView<StarView>(new ResourcePath($"{_viewPath.PathToResource.ToString()}{allStarChanse[select].NameObject.ToString()}"));
+
+            starGenerateModel = new StarGenerateModel(starConfig, _view);
+            (starConfig, _view) = starGenerateModel.CustomStarConfig();
+
+            AddPlanetInSpace(starConfig, _view);
         }
 
         
         private void AddPlanetInSpace(StarConfig config, StarView view)
         {
             System.Random random = new System.Random();
-            for (int i = 0; i < random.Next(config.starFullConfigs.MinPlanetOnOrbit, config.starFullConfigs.MaxPlanetOnOrbit); i++)
+            int numberPlanets = random.Next(config.starFullConfigs.MinPlanetOnOrbit, config.starFullConfigs.MaxPlanetOnOrbit + 1);
+            for (int i = 0; i < numberPlanets; i++)
             {
                 var planetConntroller = new PlanetController(config, view);
                 AddController(planetConntroller);
             }
-            //return movementController;
         }
     }
 }

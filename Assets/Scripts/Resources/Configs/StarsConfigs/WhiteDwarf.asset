@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca03a8d279b94a348b944f9af218e616, type: 3}
-  m_Name: StarConfig
+  m_Name: WhiteDwarf
   m_EditorClassIdentifier: 
   starFullConfigs:
-    Name: 
-    Chanse: 0
+    Name: WhiteDwarf
+    Chanse: 35
     MinDistanceFromOtherStars: 50
     MaxDistanceFromOtherStars: 100
     DistanceFromOtherStars: 0
-    MinPlanetOnOrbit: 4
-    MaxPlanetOnOrbit: 5
+    MinPlanetOnOrbit: 0
+    MaxPlanetOnOrbit: 4
     PlanetOnOrbit: 0
-    MinDiametr: 10
-    MaxDiametr: 20
+    MinDiametr: 8
+    MaxDiametr: 12
     Diametr: 0
     KoefficientGravitation: 0
     TypeStart: {fileID: 0}

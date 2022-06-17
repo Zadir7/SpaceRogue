@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8249292305398137819}
   - component: {fileID: 316899057268755838}
+  - component: {fileID: 8572180085401004699}
   m_Layer: 7
-  m_Name: Planet Ruin
+  m_Name: PlanetRuin
   m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,3 +85,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8572180085401004699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642155723508568227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92134be17bcd36c42a16e8e4ed8015b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
