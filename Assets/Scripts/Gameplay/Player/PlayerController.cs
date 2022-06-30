@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+п»їusing System.Collections.Generic;
 using Abstracts;
 using Gameplay.Health;
 using Gameplay.Input;
@@ -33,8 +33,8 @@ namespace Gameplay.Player
             _config = ResourceLoader.LoadObject<PlayerConfig>(_configPath);
             _view = LoadView<PlayerView>(_viewPath, Vector3.zero);
             
-            //Сюда необходимо вписать ссылки на фактические значения 
-            //здоровья и щита для игрока.
+            //РЎСЋРґР° РЅРµРѕР±С…РѕРґРёРјРѕ РІРїРёСЃР°С‚СЊ СЃСЃС‹Р»РєРё РЅР° С„Р°РєС‚РёС‡РµСЃРєРёРµ Р·РЅР°С‡РµРЅРёСЏ 
+            //Р·РґРѕСЂРѕРІСЊСЏ Рё С‰РёС‚Р° РґР»СЏ РёРіСЂРѕРєР°.
             HealthConfig playerhealth = new HealthConfig();
             ShieldModuleConfig playershield = new ShieldModuleConfig();
             _config.HealthShield = new HealthModel(playerhealth, playershield);
