@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Abstracts;
+using Gameplay.Health;
 using Gameplay.Input;
 using Gameplay.Player.FrontalGuns;
 using Gameplay.Player.Inventory;
@@ -14,7 +15,8 @@ namespace Gameplay.Player
 {
     public class PlayerController : BaseController
     {
-        public PlayerView View => _view; 
+        public PlayerView View => _view;
+        public PlayerConfig PlayerConfig => _config;
         
         private readonly ResourcePath _configPath = new("Configs/PlayerConfig");
         private readonly ResourcePath _viewPath = new("Prefabs/Gameplay/Player");
@@ -30,6 +32,13 @@ namespace Gameplay.Player
         {
             _config = ResourceLoader.LoadObject<PlayerConfig>(_configPath);
             _view = LoadView<PlayerView>(_viewPath, Vector3.zero);
+            
+            //—юда необходимо вписать ссылки на фактические значени€ 
+            //здоровь€ и щита дл€ игрока.
+            HealthConfig playerhealth = new HealthConfig();
+            ShieldModuleConfig playershield = new ShieldModuleConfig();
+            _config.HealthShield = new HealthModel(playerhealth, playershield);
+            //
             
             var inputController = new InputController(_horizontalInput, _verticalInput, _primaryFireInput);
             AddController(inputController);

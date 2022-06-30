@@ -14,7 +14,7 @@ namespace Gameplay
         private readonly SpaceController _spaceController;
         private readonly EnemySpawnController _enemySpawnController;
         private readonly CameraController _cameraController;
-        private readonly HealtShieldToolBarController _healtShieldToolBarController;
+        private readonly PlayerStatusBarController _PlayerStatusBarController;
 
         public GameController(CurrentState currentState)
         {
@@ -26,8 +26,8 @@ namespace Gameplay
             _cameraController = new CameraController(_playerController.View);
             AddController(_cameraController);
 
-            _healtShieldToolBarController = new HealtShieldToolBarController();
-            AddController(_healtShieldToolBarController);
+            _PlayerStatusBarController = new PlayerStatusBarController(_playerController);
+            AddController(_PlayerStatusBarController);
 
             _spaceController = new SpaceController();
             AddController(_spaceController);
