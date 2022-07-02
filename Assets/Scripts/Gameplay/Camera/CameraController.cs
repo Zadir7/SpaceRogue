@@ -1,7 +1,6 @@
 using Abstracts;
 using Gameplay.Player;
 using UnityEngine;
-using Utilities.Extensions;
 
 namespace Gameplay.Camera
 {
